@@ -1,5 +1,6 @@
 let currentPlayer = "X";
 const squares = document.querySelectorAll(".square")
+console.log(squares);
 
 const possibleWinConditions = [
     [0, 1, 2],
@@ -24,9 +25,42 @@ function changePlayer()
     }
 }
 
-function checkWin()
+function checkWin(array, player)
 {
-    
+    array.forEach(function(subArray)
+    {
+        let counter = 0;
+        subArray.forEach(function(element)
+        {
+            console.log(element);
+            if (squares[element].innerHTML === player) 
+            {
+                counter++;
+                if (counter === 3) 
+                {
+                    alert("winner is " + player);
+                }
+            }
+        });
+    });
+}
+
+function checkTie(array)
+{
+    let drawCounter = 0;
+    array.forEach(function(element)
+    {
+        console.log(element);
+        if(element.innerHTML !== "")
+        {
+            drawCounter++;
+            console.log(drawCounter);
+            if (drawCounter === 9) 
+            {
+                alert("draw");    
+            }
+        }
+    });
 }
 
 function squareClicked(event)
@@ -34,12 +68,19 @@ function squareClicked(event)
     const square = event.target;
 
     fillSquare(square);
-    changePlayer();
 }
 
 function fillSquare(square)
 {
+    if(square.innerHTML !== "")
+    {
+        return;
+    }
     square.innerHTML = currentPlayer;
+    
+    checkWin(possibleWinConditions, currentPlayer);
+    checkTie(squares);
+    changePlayer();
 }
 
 document.querySelectorAll(".square").forEach(square => square.addEventListener("click", squareClicked));
