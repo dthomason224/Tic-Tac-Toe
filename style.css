@@ -1,13 +1,15 @@
-.name {
+body{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, auto);
     margin: 30px auto;
     justify-content: center;
 }
+
 .square {
     display: flex;
     align-items: center;
@@ -17,4 +19,20 @@
     box-shadow: 2px 2px 2px 2px #998972;
     border: 2px solid ;
     cursor: pointer;
+}
+
+#name {
+    display: flex;
+    justify-content: center;
+}
+
+#restart{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+#current {
+    display: flex;
+    justify-content: center;
 }

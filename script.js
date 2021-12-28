@@ -1,6 +1,22 @@
 let currentPlayer = "X";
-const squares = document.querySelectorAll(".square")
-console.log(squares);
+let gameWon = false;
+let xRecord = 0;
+let oRecord = 0;
+
+const squares = document.querySelectorAll(".square");
+const turnDisplay = document.querySelector("#current");
+const xWinDisplay = document.querySelector("#winsX");
+const oWinDisplay = document.querySelector("#winsO");
+
+const currentPlayerMessage = () => `Current Turn: ${currentPlayer}`;
+const winMessage = () => `${currentPlayer} Won!`;
+const drawMessage = () => "Draw!";
+const xWinsMessage = () => `X Wins: ${xRecord}`;
+const oWinsMessage = () => `O Wins: ${oRecord}`;
+
+turnDisplay.innerHTML = currentPlayerMessage();
+xWinDisplay.innerHTML = xWinsMessage();
+oWinDisplay.innerHTML = oWinsMessage();
 
 const possibleWinConditions = [
     [0, 1, 2],
@@ -18,10 +34,12 @@ function changePlayer()
     if (currentPlayer === "X") 
     {
         currentPlayer = "O";
+        turnDisplay.innerHTML = currentPlayerMessage();
     }
     else
     {
         currentPlayer = "X";
+        turnDisplay.innerHTML = currentPlayerMessage();
     }
 }
 
@@ -32,17 +50,21 @@ function checkWin(array, player)
         let counter = 0;
         subArray.forEach(function(element)
         {
-            console.log(element);
             if (squares[element].innerHTML === player) 
             {
                 counter++;
                 if (counter === 3) 
                 {
+                    gameWon = true;
                     alert("winner is " + player);
                 }
             }
         });
     });
+    if (gameWon === false) 
+    {
+        checkTie(squares);
+    }
 }
 
 function checkTie(array)
@@ -77,10 +99,16 @@ function fillSquare(square)
         return;
     }
     square.innerHTML = currentPlayer;
-    
+
     checkWin(possibleWinConditions, currentPlayer);
-    checkTie(squares);
     changePlayer();
 }
 
+function restartGame()
+{
+    currentPlayer = "X";
+    squares.forEach(square => square.innerHTML = "");
+}
+
 document.querySelectorAll(".square").forEach(square => square.addEventListener("click", squareClicked));
+document.querySelector("#restart").addEventListener("click", restartGame);
