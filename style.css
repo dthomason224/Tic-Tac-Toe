@@ -1,12 +1,17 @@
 body{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    font-family: Helvetica, sans-serif;
+    font-size: large;
+    background-color: #242422;
+    color: rgb(255, 255, 255);
 }
 
 .board {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    margin: 30px auto;
+    gap: 5px;
     justify-content: center;
 }
 
@@ -16,23 +21,17 @@ body{
     justify-content: center;
     width: 225px;
     height: 225px;
-    box-shadow: 2px 2px 2px 2px #998972;
-    border: 2px solid ;
     cursor: pointer;
+    background-color: #5a5656;
+    color: #00000000;
+    border-radius: 25px;
 }
 
-#name {
-    display: flex;
-    justify-content: center;
+div.square:hover {
+    background-color: #790479;
 }
 
-#restart{
+#records {
     display: flex;
-    justify-content: center;
-    margin-top: auto;
-}
-
-#current {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
 }

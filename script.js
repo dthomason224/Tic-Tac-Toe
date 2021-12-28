@@ -72,11 +72,9 @@ function checkTie(array)
     let drawCounter = 0;
     array.forEach(function(element)
     {
-        console.log(element);
         if(element.innerHTML !== "")
         {
             drawCounter++;
-            console.log(drawCounter);
             if (drawCounter === 9) 
             {
                 alert("draw");    
@@ -99,6 +97,15 @@ function fillSquare(square)
         return;
     }
     square.innerHTML = currentPlayer;
+
+    if (currentPlayer === "X") 
+    {
+        square.style.backgroundColor = "#993399";
+    }
+    else
+    {
+        square.style.backgroundColor = "#00A36C";
+    }
 
     checkWin(possibleWinConditions, currentPlayer);
     changePlayer();
