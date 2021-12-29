@@ -1,16 +1,42 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Helvetica, sans-serif;
     font-size: large;
+    font-weight: bold;
     background-color: #242422;
     color: rgb(255, 255, 255);
+}
+
+button {
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(156, 160, 159);
+    border: 2px  rgb(170, 175, 170);
+    border-radius: 10px;
+    width: 100%;
+    color: black;
+}
+
+button:hover{
+    background-color: aliceblue;
+}
+
+h2{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    h2 {
+        display: flex;
+    }
 }
 
 .board {
     display: grid;
     grid-template-columns: repeat(3, auto);
+    margin-top: 40px;
     gap: 5px;
     justify-content: center;
 }
@@ -26,12 +52,81 @@ body{
     color: #00000000;
     border-radius: 25px;
 }
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    column-gap: 10px;
+}
 
-div.square:hover {
+.buttons{
+    display: flex;
+    margin: 5px;
+    width: 100%;
+    height: auto;
+    column-gap: 10px;
+}
+
+@media (max-width: 600px)
+{
+    h2 {
+        display: flex;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.color:hover {
     background-color: #790479;
 }
 
+.color2:hover{
+    background-color: #75a193;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.animate {
+    animation: fillBox 1s;
+}
+
+@keyframes fillBox {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 #records {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: x-large;
+    border: #242422 solid;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 100%;
+    height: auto;
+}
+
+#winsX {
+    background-color: #993399;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#winsO {
+    background-color: #00A36C;
+    text-align: center;
+    border-radius: 10px;
 }

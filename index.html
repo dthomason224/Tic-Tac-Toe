@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="records">
-            <h3 id="winsX">X wins:</h3>
-            <h3 id="winsO">0 wins:</h3> 
-    </div>
     <div class="board">
-        <div class="square" id="0"></div>
-        <div class="square" id="1"></div>
-        <div class="square" id="2"></div>
-        <div class="square" id="3"></div>
-        <div class="square" id="4"></div>
-        <div class="square" id="5"></div>
-        <div class="square" id="6"></div>
-        <div class="square" id="7"></div>
-        <div class="square" id="8"></div>
+        <div class="square color noselect" id="0"></div>
+        <div class="square color noselect" id="1"></div>
+        <div class="square color noselect" id="2"></div>
+        <div class="square color noselect" id="3"></div>
+        <div class="square color noselect" id="4"></div>
+        <div class="square color noselect" id="5"></div>
+        <div class="square color noselect" id="6"></div>
+        <div class="square color noselect" id="7"></div>
+        <div class="square color noselect" id="8"></div>
     </div>
-    <h2 id="current"></h2>
-    <button id="restart">Restart Game</button>
-    <button id="reset">Reset Score</button>
+    <div class="container">
+        <div id="records">
+            <div id="winsX"></div>
+            <div id="winsO"></div> 
+        </div>
+        <h2 id="current"></h2>
+        <div class="buttons">
+            <button id="restart">Restart Game</button>
+            <button id="reset">Reset Score</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
