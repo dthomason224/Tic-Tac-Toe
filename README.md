@@ -4,6 +4,7 @@
 This project contains a simple tic-tac-toe game.
 
 ## Approach
+### How to check win:
 To dictate the outcome of the game I used an array of DOM elements, containing the squares, and
 an array of the possible win conditons. Then a nested loop was used to loop through both arrays and 
 compare which letter was contained within the array of DOM elements. If a sub array of the winning conditions array
@@ -18,10 +19,13 @@ contained the same letter for all 3 indices, then a win was found and the curren
 ![Board](Tic_Tac_Toe.gif)
 
 ## Unsolved Problems
+* Divs are still clickable after win and before restart timer.
 
 ## Installation
 * Fork and Clone
 * Open index.html
 
 ## Future
-Winning line should be highlighted.
+* Winning line should be highlighted.
+* Option to choose color for each player.
+* Responsive layout for different screen sizes.
