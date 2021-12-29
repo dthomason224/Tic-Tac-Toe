@@ -39,6 +39,7 @@ h2{
     margin-top: 40px;
     gap: 5px;
     justify-content: center;
+    grid-auto-flow: dense;
 }
 
 .square {
@@ -52,6 +53,7 @@ h2{
     color: #00000000;
     border-radius: 25px;
 }
+
 .container {
     display: flex;
     flex-direction: row;
@@ -95,7 +97,7 @@ h2{
 }
 
 .animate {
-    animation: fillBox 1s;
+    animation: fillBox .5s;
 }
 
 @keyframes fillBox {
@@ -129,4 +131,21 @@ h2{
     background-color: #00A36C;
     text-align: center;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        font-size: x-small;
+        font-weight: normal;
+    }
+    .square {
+        width: 100px;
+        height: 100px;
+    }
+    .buttons {
+        font-size: x-small;
+    }
+    #records {
+        font-size: x-small;
+    }
 }
